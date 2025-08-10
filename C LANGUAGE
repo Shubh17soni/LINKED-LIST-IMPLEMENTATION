@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node {               //declaring a node
+    int data;
+    struct Node *link;
+};
+int main()
+{
+int head;
+struct Node* start= malloc(sizeof(struct Node));   // declaring first node
+
+start->data=12;
+
+
+printf("%d\n", start->data);
+
+struct Node* next =malloc(sizeof(struct Node));   //declaring second node
+next->data=17;
+next->link=NULL;
+start->link=next;
+
+printf("%d\n", next->data);
+
+struct Node* last=malloc(sizeof(struct Node));  //declaring second node
+last->data=20;
+last->link=NULL;
+next->link=last;
+
+printf("%d\n",last->data);
+
+
+
+start->link=last;
+free(next);
+struct Node*temp=start;
+printf("lincked list after deletions is as follows");  // deletion of a node
+while(temp !=NULL){
+    printf("%d->",temp->data);
+    temp=temp->link;
+}
+return 0;
+}
